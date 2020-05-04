@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import Aux from '../Aux/Aux';
+import { connect } from 'react-redux';
+
 import classes from './Layout.css';
+import Aux from '../Aux/Aux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
-import { connect } from 'react-redux';
 
 const layout = props => {
     const [sideDrawerIsVisible, setSidDrawerIsVisible] = useState(false);

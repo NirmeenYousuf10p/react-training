@@ -1,15 +1,17 @@
 import React, {useEffect} from 'react';
+import { connect } from 'react-redux';
+
 import Order from '../../components/Order/Order';
 import axios from '../../axios-orders';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandlre';
 import * as actions from '../../store/actions/index';
-import { connect } from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
 const orders = props => {
 
+    const {onFetchOrders} = props;
     useEffect(() => {
-        props.onFetchOrders(props.token, props.userId);
+        onFetchOrders(props.token, props.userId);
         // axios.get('/orders.json')
         //     .then(res => {
         //         const fetchedOrders = [];
@@ -24,7 +26,7 @@ const orders = props => {
         //     .catch(err => {
         //         this.setState({loading: false});
         //     })
-    }, []);
+    }, [onFetchOrders]);
 
         let orders = <Spinner/>
         if (!props.loading) {
